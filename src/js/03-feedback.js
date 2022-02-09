@@ -6,7 +6,7 @@ const STORAGE_KEY = 'feedback-form-state';
 
 const inputHandler = e => {
   const { name, value } = e.target;
-  const parsedData = storage.get(STORAGE_KEY) ?? {};
+  const parsedData = storage.get(STORAGE_KEY) || {};
   const formData = {
     ...parsedData,
     [name]: value,
@@ -16,7 +16,7 @@ const inputHandler = e => {
 };
 
 const rehydrateData = () => {
-  const parsedData = storage.get(STORAGE_KEY) ?? {};
+  const parsedData = storage.get(STORAGE_KEY) || {};
   const {
     elements: { email, message },
   } = formRef;
